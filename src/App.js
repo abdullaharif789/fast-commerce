@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// /* eslint-disable */
+import * as React from "react";
+import { Admin, Resource } from "react-admin";
+import axios from "axios";
 
-function App() {
+import authProvider from "./providers/authProvider";
+import dataProvider from "./providers/dataProvider";
+
+import layout from "./layout";
+import { app } from "./contants";
+
+import customers from "./customers/customers";
+import users from "./users/users";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Admin
+      layout={layout}
+      dataProvider={dataProvider}
+      authProvider={authProvider}
+    >
+      {(permissions) => [
+        permissions === app.adminRole ? (
+          <Resource name="users" {...users} />
+        ) : null,
+        <Resource name="customers" {...customers} />,
+      ]}
+    </Admin>
   );
 }
-
-export default App;
