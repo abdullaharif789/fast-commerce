@@ -1,30 +1,19 @@
 // /* eslint-disable */
-import * as React from "react";
-import { Admin, Resource } from "react-admin";
-import axios from "axios";
+import React from "react";
 
-import authProvider from "./providers/authProvider";
-import dataProvider from "./providers/dataProvider";
+import Registraion from "./registration/Registration";
+import AdminPanel from "./Admin";
+import { BrowserRouter, Route, Routes, HashRouter } from "react-router-dom";
 
-import layout from "./layout";
-import { app } from "./contants";
-
-import customers from "./customers/customers";
-import users from "./users/users";
-
-export default function App() {
+const App = () => {
   return (
-    <Admin
-      layout={layout}
-      dataProvider={dataProvider}
-      authProvider={authProvider}
-    >
-      {(permissions) => [
-        permissions === app.adminRole ? (
-          <Resource name="users" {...users} />
-        ) : null,
-        <Resource name="customers" {...customers} />,
-      ]}
-    </Admin>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path={"registration"} element={<Registraion />} />
+        <Route exact path={"/"} element={<AdminPanel />} />
+        <Route exact path={"admin"} element={<AdminPanel />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
+export default App;

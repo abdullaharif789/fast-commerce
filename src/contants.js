@@ -1,6 +1,7 @@
 export const app = {
   api: "https://server.fcportal.org/",
   // api: "http://127.0.0.1:8000/",
+  website: "https://fastcommerceinternational.com/",
   currencySymbol: "$",
   currencyCode: "GBP",
   colorOne: "#ef2425",
@@ -9,6 +10,18 @@ export const app = {
   roles: [
     { id: "admin", name: "Admin" },
     { id: "employee", name: "Employee" },
+    { id: "trainer", name: "Trainer" },
+  ],
+  region: [
+    { id: "lahore", name: "Lahore" },
+    { id: "hunza", name: "Hunza" },
+    { id: "dubai", name: "Dubai" },
+    { id: "manchester", name: "Manchester" },
+  ],
+  cources: [
+    { id: "amazon_fba_private_label", name: "Amazon FBA Private Label" },
+    { id: "amazon_fba_wholesale", name: "Amazon FBA Wholesale" },
+    { id: "amazon_virtual_assistant", name: "Amazon Virtual Assistant" },
   ],
   sleep: (ms) => {
     return new Promise((resolve) => setTimeout(resolve, ms));

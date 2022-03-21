@@ -10,7 +10,8 @@ import {
   Create,
   SimpleForm,
   TextInput,
-  ShowGuesser,
+  Show,
+  SimpleShowLayout,
   PasswordInput,
   SelectInput,
   Edit,
@@ -24,7 +25,18 @@ export const UserList = (props) => {
         <TextField source="first_name" />
         <TextField source="last_name" />
         <TextField source="username" />
-        <TextField source="role" />
+        <TextField
+          source="role"
+          style={{
+            textTransform: "capitalize",
+          }}
+        />
+        <TextField
+          source="region"
+          style={{
+            textTransform: "capitalize",
+          }}
+        />
         <DateField source="created_at" />
       </Datagrid>
     </List>
@@ -83,6 +95,13 @@ export const UserCreate = (props) => {
           variant="outlined"
           required
         />
+        <SelectInput
+          source="region"
+          choices={app.region}
+          fullWidth
+          variant="outlined"
+          required
+        />
       </SimpleForm>
     </Create>
   );
@@ -135,15 +154,35 @@ export const UserEdit = (props) => {
           variant="outlined"
           required
         />
+        <SelectInput
+          source="region"
+          choices={app.region}
+          fullWidth
+          variant="outlined"
+          required
+        />
       </SimpleForm>
     </Edit>
   );
 };
+export const UserShow = (props) => (
+  <Show {...props}>
+    <SimpleShowLayout>
+      <TextField source="id" />
+      <TextField source="first_name" />
+      <TextField source="last_name" />
+      <TextField source="username" />
+      <TextField source="role" />
+      <TextField source="region" />
+      <DateField source="created_at" />
+    </SimpleShowLayout>
+  </Show>
+);
 export default {
   list: UserList,
   create: UserCreate,
   name: "users",
   icon: AccountCircleIcon,
-  show: ShowGuesser,
+  show: UserShow,
   edit: UserEdit,
 };

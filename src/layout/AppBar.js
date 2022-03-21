@@ -31,7 +31,8 @@ const CustomAppBar = (props) => {
       <img
         src={logo}
         style={{
-          width: 55,
+          width: 100,
+          padding: 10,
         }}
       />
       <span className={classes.spacer} />

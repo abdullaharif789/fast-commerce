@@ -11,7 +11,11 @@ const dataProvider = {
     var user_id = null;
     if (auth) {
       const user = JSON.parse(auth);
-      if (user.role != app.adminRole || resource === "users")
+      if (
+        user.role != app.adminRole ||
+        resource === "users" ||
+        resource === "registrations"
+      )
         user_id = JSON.parse(auth).user_id;
     }
     const { page, perPage } = params.pagination;
