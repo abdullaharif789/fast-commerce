@@ -148,11 +148,12 @@ export default function SignInSide() {
               alignItems: "center",
             }}
           >
-            <Avatar
+            <img
               src={logo}
-              sx={{
+              alt="logo"
+              className="logo"
+              style={{
                 width: 100,
-                height: 100,
               }}
             />
             <Box
@@ -199,7 +200,7 @@ export default function SignInSide() {
                 labelId="demo-simple-select-label"
                 name="region"
                 label="Region"
-                value={app.region[0].id}
+                defaultValue={app.region[0].id}
                 fullWidth
                 size="small"
                 sx={{
@@ -216,7 +217,7 @@ export default function SignInSide() {
                 labelId="demo-simple-select-label"
                 name="cource"
                 label="Cources"
-                value={app.cources[0].id}
+                defaultValue={app.cources[0].id}
                 fullWidth
                 size="small"
                 sx={{
