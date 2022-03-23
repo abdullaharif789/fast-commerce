@@ -70,6 +70,7 @@ export default function SignInSide() {
       course: data.get("cource"),
       fee: data.get("fee"),
       transaction_id: data.get("transaction_id"),
+      national_identity: data.get("national_identity"),
     };
     const errors = Object.values(body).filter(
       (d) => typeof d === "undefined" || d === ""
@@ -194,6 +195,14 @@ export default function SignInSide() {
                 fullWidth
                 label="Whatsapp/Botim"
                 name="contact"
+                size="small"
+              />
+              <TextField
+                margin="dense"
+                required
+                fullWidth
+                label="Passport/CNIC #"
+                name="national_identity"
                 size="small"
               />
               <Select
