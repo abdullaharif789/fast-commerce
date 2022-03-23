@@ -16,13 +16,16 @@ import {
   Show,
   SimpleShowLayout,
   Edit,
+  FileInput,
+  FileField,
+  ShowButton,
 } from "react-admin";
 import PersonIcon from "@material-ui/icons/Person";
 import { app } from "../contants";
 export const CustomerList = (props) => {
   return (
     <List {...props} bulkActionButtons={false} pagination={false}>
-      <Datagrid rowClick="show">
+      <Datagrid>
         <TextField source="name" />
         <TextField source="country" />
         <TextField source="service" />
@@ -34,6 +37,8 @@ export const CustomerList = (props) => {
         <DateField source="date" />
         <TextField source="user.first_name" label={"Created by"} />
         <DateField source="created_at" />
+        <FileField source="document" title={"View"} target="_blank" download />
+        <ShowButton />
       </Datagrid>
     </List>
   );
@@ -95,6 +100,14 @@ export const CustomerCreate = (props) => {
           required
         />
         <DateInput source="date" fullWidth variant="outlined" required />
+        <FileInput
+          source="document"
+          label="Document"
+          accept="application/pdf"
+          maxSize={5000000}
+        >
+          <FileField source="document" title="title" />
+        </FileInput>
       </SimpleForm>
     </Create>
   );

@@ -163,16 +163,16 @@ export default {
     }
   },
   create: (resource, params) => {
-    if (!params.data.image || resource !== "items") {
+    if (!params.data.document || resource !== "customers") {
       return dataProvider.create(resource, params);
     } else {
-      var image = params.data.image;
-      return convertFileToBase64(image).then((image) => {
+      var doc = params.data.document;
+      return convertFileToBase64(doc).then((document) => {
         return dataProvider.create(resource, {
           ...params,
           data: {
             ...params.data,
-            image,
+            document,
           },
         });
       });

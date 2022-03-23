@@ -45,3 +45,6 @@ tbody.MuiTableBody-root {
 td.MuiTableCell-root span {
   font-weight: 600;
 }
+.RaSidebar-root-200 {
+  height: auto !important;
+}
