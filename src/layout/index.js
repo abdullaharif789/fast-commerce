@@ -85,6 +85,7 @@ export default (props) => {
           marginRight: 10,
           borderBottom: `10px solid ${app.colorOne}`,
           paddingRight: 10,
+          height: "auto !important",
         },
       },
       MuiFilledInput: {

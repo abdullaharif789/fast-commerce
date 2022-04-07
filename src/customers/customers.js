@@ -29,14 +29,21 @@ export const CustomerList = (props) => {
         <TextField source="name" />
         <TextField source="country" />
         <TextField source="service" />
-        <NumberField source="fee" label={`Fee(${app.currencySymbol})`} />
+        <NumberField
+          source="fee"
+          label={`Monthly Fee(${app.currencySymbol})`}
+        />
+        <NumberField
+          source="advance"
+          label={`Advance Fee(${app.currencySymbol})`}
+        />
+        <NumberField source="sharing" label={`Sharing(%)`} />
         <NumberField
           source="contract_duration"
           label={`Contract Duration (Months)`}
         />
         <DateField source="date" />
         <TextField source="user.first_name" label={"Created by"} />
-        <DateField source="created_at" />
         <FileField source="document" title={"View"} target="_blank" download />
         <ShowButton />
       </Datagrid>
@@ -86,10 +93,26 @@ export const CustomerCreate = (props) => {
         <NumberInput
           source="fee"
           fullWidth
-          placeholder="1200"
+          placeholder="350"
           variant="outlined"
           required
-          label={`Fee(${app.currencySymbol})`}
+          label={`Monthly Fee(${app.currencySymbol})`}
+        />
+        <NumberInput
+          source="advance"
+          fullWidth
+          placeholder="200"
+          variant="outlined"
+          required
+          label={`Advance Fee(${app.currencySymbol})`}
+        />
+        <NumberInput
+          source="sharing"
+          fullWidth
+          placeholder="12.5"
+          variant="outlined"
+          required
+          label={`Sharing(%)`}
         />
         <NumberInput
           source="contract_duration"
@@ -97,7 +120,6 @@ export const CustomerCreate = (props) => {
           fullWidth
           placeholder="1.5"
           variant="outlined"
-          required
         />
         <DateInput source="date" fullWidth variant="outlined" required />
         <FileInput
@@ -116,13 +138,20 @@ export const CustomerCreate = (props) => {
 export const CustomerShow = (props) => (
   <Show {...props}>
     <SimpleShowLayout>
-      <TextField source="id" />
       <TextField source="name" />
       <TextField source="country" />
       <TextField source="service" />
       <DateField source="date" />
-      <NumberField source="fee" />
-      <NumberField source="contract_duration" />
+      <NumberField source="fee" label={`Monthly Fee(${app.currencySymbol})`} />
+      <NumberField
+        source="advance"
+        label={`Advance Fee(${app.currencySymbol})`}
+      />
+      <NumberField source="sharing" label={`Sharing(%)`} />
+      <NumberField
+        source="contract_duration"
+        label={"Contract Duration (Months)"}
+      />
       <TextField source="user.first_name" label={"Created by"} />
       <DateField source="created_at" />
     </SimpleShowLayout>

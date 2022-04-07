@@ -10,6 +10,7 @@ import { app } from "./contants";
 
 import customers from "./customers/customers";
 import registrations from "./registrations/registrations";
+import payments from "./payments/payments";
 import users from "./users/users";
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
         ) : null,
         <Resource name="customers" {...customers} />,
         <Resource name="registrations" {...registrations} />,
+        <Resource name="payments" {...payments} />,
       ]}
     </Admin>
   );
