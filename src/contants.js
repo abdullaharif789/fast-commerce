@@ -1,5 +1,5 @@
 export const app = {
-  api: "https://server.fcportal.org/",
+  api: "https://server.fcportal.org/public/",
   // api: "http://127.0.0.1:8000/",
   website: "https://fastcommerceinternational.com/",
   currencySymbol: "$",
