@@ -14,7 +14,15 @@ export const PaymentList = (props) => (
         label={`Advance Fee(${app.currencySymbol})`}
       />
       <NumberField source="sharing" label={`Sharing(%)`} />
-      <DateField source="date" />
+      <DateField
+        source="date"
+        label="Month Date"
+        options={{
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }}
+      />
       <NumberField source="remaining_days" />
     </Datagrid>
   </List>

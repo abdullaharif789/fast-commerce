@@ -195,9 +195,26 @@ export const CustomerEdit = (props) => {
         <NumberInput
           source="fee"
           fullWidth
-          placeholder="1200"
+          placeholder="350"
           variant="outlined"
           required
+          label={`Monthly Fee(${app.currencySymbol})`}
+        />
+        <NumberInput
+          source="advance"
+          fullWidth
+          placeholder="200"
+          variant="outlined"
+          required
+          label={`Advance Fee(${app.currencySymbol})`}
+        />
+        <NumberInput
+          source="sharing"
+          fullWidth
+          placeholder="12.5"
+          variant="outlined"
+          required
+          label={`Sharing(%)`}
         />
         <NumberInput
           source="contract_duration"
