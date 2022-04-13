@@ -19,6 +19,7 @@ import {
   FileInput,
   FileField,
   ShowButton,
+  RadioButtonGroupInput,
 } from "react-admin";
 import PersonIcon from "@material-ui/icons/Person";
 import { app } from "../contants";
@@ -224,6 +225,14 @@ export const CustomerEdit = (props) => {
           required
         />
         <DateInput source="date" fullWidth variant="outlined" required />
+        <RadioButtonGroupInput
+          source="payment_verified"
+          label="Payment Verified"
+          choices={[
+            { id: "Yes", name: "Yes" },
+            { id: "No", name: "No" },
+          ]}
+        />
       </SimpleForm>
     </Edit>
   );
