@@ -33,19 +33,20 @@ const CustomerFilter = (props) => (
     <ReferenceInput
       source="user_id"
       reference="users"
+      label="Created By"
       alwaysOn
       variant="outlined"
       perPage={10000000}
       filterToQuery={(searchText) => ({ name: searchText })}
     >
-      <AutocompleteInput optionText="name" />
+      <AutocompleteInput optionText="first_name" />
     </ReferenceInput>
   </Filter>
 );
 
 export const CustomerList = (props) => {
   return (
-    <List filter={<CustomerFilter />} {...props} bulkActionButtons={false}>
+    <List filters={<CustomerFilter />} {...props} bulkActionButtons={false}>
       <Datagrid>
         <TextField source="name" />
         <TextField source="country" />
