@@ -20,16 +20,37 @@ import {
   FileField,
   ShowButton,
   RadioButtonGroupInput,
+  BooleanField,
+  Filter,
+  ReferenceInput,
+  AutocompleteInput,
 } from "react-admin";
 import PersonIcon from "@material-ui/icons/Person";
 import { app } from "../contants";
+
+const CustomerFilter = (props) => (
+  <Filter {...props}>
+    <ReferenceInput
+      source="user_id"
+      reference="users"
+      alwaysOn
+      variant="outlined"
+      perPage={10000000}
+      filterToQuery={(searchText) => ({ name: searchText })}
+    >
+      <AutocompleteInput optionText="name" />
+    </ReferenceInput>
+  </Filter>
+);
+
 export const CustomerList = (props) => {
   return (
-    <List {...props} bulkActionButtons={false} pagination={false}>
+    <List filter={<CustomerFilter />} {...props} bulkActionButtons={false}>
       <Datagrid>
         <TextField source="name" />
         <TextField source="country" />
         <TextField source="service" />
+        <TextField source="company" emptyText="--" />
         <NumberField
           source="fee"
           label={`Monthly Fee(${app.currencySymbol})`}
@@ -45,6 +66,7 @@ export const CustomerList = (props) => {
         />
         <DateField source="date" />
         <TextField source="user.first_name" label={"Created by"} />
+        <BooleanField source="payment_verified_b" label="Payment Verified" />
         <FileField source="document" title={"View"} target="_blank" download />
         <ShowButton />
       </Datagrid>
@@ -88,6 +110,13 @@ export const CustomerCreate = (props) => {
           source="service"
           fullWidth
           placeholder="Plumber"
+          variant="outlined"
+          required
+        />
+        <TextInput
+          source="company"
+          fullWidth
+          placeholder="Microsoft"
           variant="outlined"
           required
         />
@@ -190,6 +219,13 @@ export const CustomerEdit = (props) => {
           source="service"
           fullWidth
           placeholder="Plumber"
+          variant="outlined"
+          required
+        />
+        <TextInput
+          source="company"
+          fullWidth
+          placeholder="Microsoft"
           variant="outlined"
           required
         />

@@ -2,6 +2,8 @@
 import * as React from "react";
 import { Admin, Resource } from "react-admin";
 
+import closeSidebarSaga from "./layout/SideBar";
+
 import authProvider from "./providers/authProvider";
 import dataProvider from "./providers/dataProvider";
 
@@ -16,6 +18,7 @@ import users from "./users/users";
 export default function App() {
   return (
     <Admin
+      customSagas={[closeSidebarSaga]}
       layout={layout}
       dataProvider={dataProvider}
       authProvider={authProvider}

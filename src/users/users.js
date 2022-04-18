@@ -20,7 +20,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { app } from "../contants";
 export const UserList = (props) => {
   return (
-    <List {...props} bulkActionButtons={false} pagination={false}>
+    <List {...props} bulkActionButtons={false}>
       <Datagrid rowClick="show">
         <TextField source="first_name" />
         <TextField source="last_name" />
