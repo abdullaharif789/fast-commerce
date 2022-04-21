@@ -15,13 +15,14 @@ export const PaymentList = (props) => (
     <Datagrid>
       <TextField source="name" />
       <TextField source="country" />
+      <TextField source="company" />
       <NumberField source="fee" label={`Monthly Fee(${app.currencySymbol})`} />
       <NumberField
         source="advance"
         label={`Advance Fee(${app.currencySymbol})`}
       />
       <NumberField source="sharing" label={`Sharing(%)`} />
-      <BooleanField source="payment_verified_b" label="Payment Vaerified" />
+      <BooleanField source="payment_verified_b" label="Payment Verified" />
       <DateField
         source="date"
         label="Month Date"

@@ -9,10 +9,25 @@ import {
   Show,
   SimpleShowLayout,
   DeleteButton,
+  Filter,
+  SelectInput,
 } from "react-admin";
+import { app } from "../contants";
+
 import HowToRegIcon from "@material-ui/icons/HowToReg";
+const RegistrationFilter = (props) => (
+  <Filter {...props}>
+    <SelectInput
+      choices={app.region.map((item) => ({ id: item.id, name: item.name }))}
+      source="region"
+      label="Region"
+      variant="outlined"
+      alwaysOn
+    />
+  </Filter>
+);
 const RegistrationList = (props) => (
-  <List {...props} bulkActionButtons={false}>
+  <List filters={<RegistrationFilter />} {...props} bulkActionButtons={false}>
     <Datagrid rowClick="show">
       <DeleteButton label="" />
       <TextField source="first_name" />
