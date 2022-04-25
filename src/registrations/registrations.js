@@ -36,6 +36,7 @@ const RegistrationList = (props) => (
       <TextField source="contact" />
       <TextField source="national_identity" />
       <TextField source="region" />
+      <TextField source="batch" emptyText="--" />
       <TextField source="course" />
       <NumberField source="fee" />
       <NumberField source="transaction_id" label={"Transaction#"} />

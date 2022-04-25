@@ -17,6 +17,7 @@ export const app = {
     { id: "hunza", name: "Hunza" },
     { id: "dubai", name: "Dubai" },
     { id: "manchester", name: "Manchester" },
+    { id: "gilgit", name: "Gilgit" },
   ],
   cources: [
     { id: "amazon_fba_private_label", name: "Amazon FBA Private Label" },

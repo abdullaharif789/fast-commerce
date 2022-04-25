@@ -69,6 +69,7 @@ export default function SignInSide() {
       region: data.get("region"),
       course: data.get("cource"),
       fee: data.get("fee"),
+      batch: data.get("batch"),
       transaction_id: data.get("transaction_id"),
       national_identity: data.get("national_identity"),
     };
@@ -253,6 +254,14 @@ export default function SignInSide() {
                 fullWidth
                 label="Transaction ID#"
                 name="transaction_id"
+                size="small"
+              />
+              <TextField
+                margin="dense"
+                required
+                fullWidth
+                label="Batch#"
+                name="batch"
                 size="small"
               />
               <Button
